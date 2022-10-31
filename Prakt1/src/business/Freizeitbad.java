@@ -135,7 +135,12 @@ public class Freizeitbad {
 
 	public void setTemperatur(int temperatur) {
 		this.temperatur = temperatur;
+	}
+/*
+	public String getFreizeitbad() {
+		return gibFreizeitbadZurueck(char trenner);
+		
 	}	
-  	
+**/	
 }
 
