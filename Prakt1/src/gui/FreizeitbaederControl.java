@@ -1,83 +1,99 @@
 package gui;
 
-import business.Freizeitbad;
-import business.FreizeitbaederModel;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.stage.*;
 import ownUtil.PlausiException;
 
-public class FreizeitbaederControl {
-	
-	private FreizeitbaederView freizeitbaederView;
-	private FreizeitbaederModel freizeitbaederModel;
+import java.io.IOException;
 
-	public FreizeitbaederControl(Stage primaryStage) {
-		this.freizeitbaederModel = new FreizeitbaederModel();
-		this.freizeitbaederView = new FreizeitbaederView(this, primaryStage, freizeitbaederModel);
+import business.FreizeitbaederModel;
+
+public class FreizeitbaederControl{
+	
+	FreizeitbaederView freizeitbaederView;
+	FreizeitbaederModel freizeitbaederModel;
+	
+	public FreizeitbaederControl( Stage primaryStage ) {
 		
+		this.freizeitbaederModel = new FreizeitbaederModel();
+		this.freizeitbaederView = new FreizeitbaederView(this, primaryStage, freizeitbaederModel );
 		
 	}
 
 	public void nehmeFreizeitbadAuf(String name, String von, String bis, String laenge, String temp) {
 		try{
-    		this.freizeitbaederModel.nehmeFreizeitbadAuf(name, von, bis, laenge, temp);
-    		this.freizeitbaederView.zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
-       	}
-		
-		catch(Exception exc){
-			this.freizeitbaederView.zeigeFehlermeldungsfensterAn(" Fehler",
-			"Fehler beim Schreiben in die Datei.");
-     	}
+			this.freizeitbaederModel.nehmeFreizeitbadAuf(name, von, bis, laenge, temp);
+			this.freizeitbaederView.zeigeInformationsfensterAn("Der Text wurde in die Datei geschrieben.");
+		} 
+		catch(PlausiException exc) {
+			this.freizeitbaederView.zeigeFehlermeldungsfensterAn(exc.getPlausiTyp() + "er ", exc.getMessage());
+		}
 		
 	}
 
-	public String zeigeFreizeitbaederAn() {
-		String txt= " ";
+	public String zeigeFreizeitbadAn() {
+		String txt="!!!!";
 		try{
-    		txt = freizeitbaederModel.zeigeFreizeitbaederAn();
-    		//this.freizeitbaederView.zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
-       	}
-		
-		catch(Exception exc){
-			this.freizeitbaederView.zeigeFehlermeldungsfensterAn(" Fehler",
-			"Fehler beim Schreiben in die Datei.");
-     	}
+			txt = this.freizeitbaederModel.zeigeFreizeitbadAn();
+		} 
+		catch(PlausiException exc) {
+			this.freizeitbaederView.zeigeFehlermeldungsfensterAn(exc.getPlausiTyp() + "er ", exc.getMessage());
+		}
 		return txt;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	
-		public void schreibeInDatei(String text)
-		throws Exception {
-		BufferedWriter aus = new BufferedWriter(new FileWriter("Text.txt"));
-		aus.write(text);
-		aus.close();
-		}
-		}
-		
+
+	public void schreibeFreizeitbaederInDatei(String typ){
 		try{
-			this.anwModel.schreibeInDatei(text);
-			this.anwView.zeigeInformationsfensterAn(
-			"Der Text wurde in die Datei geschrieben.");
+			if("csv".equals(typ)){
+				// Aufruf des Models zum Schreiben des
+				this.freizeitbaederModel.schreibeFreizeitbaederInCsvDatei();
+				// Freizeitbads in die Datei des vorgegebenen
+				// Typs und Ausgabe der Meldung
 			}
-			catch(Exception exc){
-			this.anwView.zeigeFehlermeldungAn(
-			"Fehler beim Schreiben in die Datei.");
-		*/
-	
-	
-
-	
-
-	
-
-
+			else{
+				freizeitbaederView.zeigeInformationsfensterAn(
+				"Noch nicht implementiert!");
+				}
+		}
+		catch(IOException exc){
+			freizeitbaederView.zeigeFehlermeldungAn("IOException beim Speichern!");
+		}
+		catch(Exception exc){
+			freizeitbaederView.zeigeFehlermeldungAn("Unbekannter Fehler beim Speichern!");
+		}
+	} 
+		
+		
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
