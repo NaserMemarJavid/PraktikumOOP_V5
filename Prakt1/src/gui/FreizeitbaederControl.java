@@ -49,6 +49,9 @@ public class FreizeitbaederControl{
 				// Freizeitbads in die Datei des vorgegebenen
 				// Typs und Ausgabe der Meldung
 			}
+			else if("txt".equals(typ)) {
+				this.freizeitbaederModel.schreibeFreizeitbaederInTxtDatei();
+			}
 			else{
 				freizeitbaederView.zeigeInformationsfensterAn(
 				"Noch nicht implementiert!");

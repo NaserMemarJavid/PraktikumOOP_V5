@@ -5,6 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import ownUtil.PlausiException;
+import writer.ConctreteCsvWriterCreator;
+import writer.ConcreteTxtWriterCreator;
+import writer.WriterCreator;
+import writer.WriterProduct;
 
 public class FreizeitbaederModel{
 	
@@ -26,6 +30,7 @@ public class FreizeitbaederModel{
 	}
 	
 	//---------------------------------------------------------
+	/*
 	public void schreibeFreizeitbaederInCsvDatei() 
 	// Werfen einer IOException
 			throws IOException{
@@ -33,12 +38,33 @@ public class FreizeitbaederModel{
 		new FileWriter("Freizeitbaeder.csv", true));
 		aus.write(this.getFreizeitbad().gibFreizeitbadZurueck(';'));
 		aus.close();
+	}*/
+	
+	public void schreibeFreizeitbaederInCsvDatei() throws IOException{
+		
+		WriterCreator writerCreator = new ConctreteCsvWriterCreator();
+		WriterProduct writer = writerCreator.factoryMethod();
+		
+		writer.fuegeInDateiHinZu(this.freizeitbad);
+		writer.schliesseDatei();
+	}
+	
+	public void schreibeFreizeitbaederInTxtDatei() throws IOException {
+
+		WriterCreator writerCreator = new ConcreteTxtWriterCreator();
+		WriterProduct writer = writerCreator.factoryMethod();
+		
+		writer.fuegeInDateiHinZu(this.freizeitbad);
+		writer.schliesseDatei();
+		
 	}
 
 	private Freizeitbad getFreizeitbad() {
 		// TODO Auto-generated method stub
 		return this.freizeitbad;
 	}
+
+	
 	
 }
 
