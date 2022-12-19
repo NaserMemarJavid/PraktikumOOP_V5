@@ -13,7 +13,7 @@ public class ConcreteCsvWriterProduct extends WriterProduct {
 		this.aus = new BufferedWriter(
 				new FileWriter("Freizeitbaeder.csv", true));
 	}
-
+ 
 	@Override
 	public void fuegeInDateiHinZu(Freizeitbad freizeitbad) throws IOException {
 

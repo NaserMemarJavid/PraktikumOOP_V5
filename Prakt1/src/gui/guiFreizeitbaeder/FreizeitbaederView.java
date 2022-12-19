@@ -11,7 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 
-
+ 
 public class FreizeitbaederView implements Observer{
 	
 	private FreizeitbaederControl freizeitbaederControl;
@@ -138,18 +138,21 @@ public class FreizeitbaederView implements Observer{
 	            //txtAnzeige.setText( zeigeFreizeitbadAn() );
 	        } 
    	    });
-	    mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {
-	    	@Override
-	    	public void handle(ActionEvent e) {
-	    		schreibeFreizeitbaederInDatei("csv");
-	    	}
-	    });
-	    mnItmTxtExport.setOnAction(new EventHandler<ActionEvent>() {
-	    	@Override
-	    	public void handle(ActionEvent e) {
-	    		schreibeFreizeitbaederInDatei("txt");
-	    	}
-	    });
+//	    mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {
+//	    	@Override
+//	    	public void handle(ActionEvent e) {
+//	    		schreibeFreizeitbaederInDatei("csv");
+//	    	}
+//	    });
+	    mnItmCsvExport.setOnAction( e -> schreibeFreizeitbaederInDatei("csv") );
+	    
+//	    mnItmTxtExport.setOnAction(new EventHandler<ActionEvent>() {
+//	    	@Override
+//	    	public void handle(ActionEvent e) {
+//	    		schreibeFreizeitbaederInDatei("txt");
+//	    	}
+//	    });
+	    mnItmTxtExport.setOnAction( e -> schreibeFreizeitbaederInDatei("txt"));
 		
 	}
 	

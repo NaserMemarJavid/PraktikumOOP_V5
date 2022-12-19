@@ -1,9 +1,9 @@
 package business;
 
-import ownUtil.*;
+import ownUtil.*; 
 
 public class Freizeitbad {
-	
+	 
 	// Name des Freizeitbads
     private String name;
     // Oeffnungszeiten

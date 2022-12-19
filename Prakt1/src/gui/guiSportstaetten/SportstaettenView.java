@@ -1,6 +1,7 @@
 package gui.guiSportstaetten;
 
 
+import business.Freizeitbad;
 import business.FreizeitbaederModel;
 import gui.guiFreizeitbaeder.FreizeitbaederControl;
 import javafx.event.*;
@@ -13,12 +14,12 @@ import javafx.stage.Stage;
 import ownUtil.*;
 
 public class SportstaettenView implements Observer{
-	
+	 
 	// Hier ergaenzen
 	private SportstaettenControl sportstaettenControl;
 	private FreizeitbaederModel freizeitbaederModel;
 	
-	
+	 
 	
     	//---Anfang Attribute der grafischen Oberflaeche---
     	private Pane pane     				       
@@ -77,10 +78,16 @@ public class SportstaettenView implements Observer{
     }
    
     private void zeigeFreizeitbaederAn(){
-    		if(freizeitbaederModel.getFreizeitbad() != null){
-    			txtAnzeigeFreizeitbaeder.setText(
-    				freizeitbaederModel.getFreizeitbad()
- 				.gibFreizeitbadZurueck(' '));
+    		if(freizeitbaederModel.getFreizeitbaeder().size() > 0){
+    			StringBuffer text = new StringBuffer();
+    			for(Freizeitbad fzb : freizeitbaederModel.getFreizeitbaeder() )
+    			{
+    				text.append(fzb.gibFreizeitbadZurueck(' ') + "\n");
+//    				txtAnzeigeFreizeitbaeder.setText(
+//    	    				e.gibFreizeitbadZurueck(' '));
+    			}
+    			this.txtAnzeigeFreizeitbaeder.setText(text.toString());
+    			
     		}
     		else{
     			zeigeInformationsfensterAn(
@@ -96,15 +103,7 @@ public class SportstaettenView implements Observer{
     //Implementation des Interface-Observers
 	@Override
 	public void update() {
-		if(freizeitbaederModel.getFreizeitbad() != null){
-			txtAnzeigeFreizeitbaeder.setText(
-				freizeitbaederModel.getFreizeitbad()
-				.gibFreizeitbadZurueck(' '));
-		}
-		else{
-			zeigeInformationsfensterAn(
-				"Bisher wurde kein Freizeitbad aufgenommen!");
-		}
+		zeigeFreizeitbaederAn();
 		
 	}	
     

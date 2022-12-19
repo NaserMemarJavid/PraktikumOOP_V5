@@ -10,4 +10,4 @@ public class ConcreteTxtWriterCreator  extends WriterCreator{
 		return new ConcreteTxtWriterProduct();
 	}
 
-}
+} 

@@ -1,8 +1,9 @@
 package business;
 
-import java.io.BufferedWriter;
+import java.io.BufferedWriter; 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import ownUtil.Observable;
@@ -15,7 +16,10 @@ import writer.WriterProduct;
 
 public class FreizeitbaederModel implements Observable{
 	
-	private Freizeitbad freizeitbad;
+	//private Freizeitbad freizeitbad;
+	//P4
+	private ArrayList<Freizeitbad> freizeitbaeder = new ArrayList<>();
+	//-------
 	
 	// Observersliste
 	private Vector<Observer> observers = new Vector<Observer>();
@@ -31,15 +35,34 @@ public class FreizeitbaederModel implements Observable{
 	}
 	//-----------------------------------------------------------------
 	
+
+
+	//p4
+	public ArrayList<Freizeitbad> getFreizeitbaeder() {
+		return this.freizeitbaeder;
+	}
+	
+	public void addFreizeitbad(Freizeitbad freizeitbad) {
+		this.freizeitbaeder.add(freizeitbad);
+		notifyObservers();
+	}
+	//---------
+	
+	
+	
 	public void nehmeFreizeitbadAuf(
 			String name, String von, String bis, String laenge, String temp)
 					throws PlausiException {
-		freizeitbad = new Freizeitbad(name, von, bis, laenge, temp);
+		addFreizeitbad(new Freizeitbad(name, von, bis, laenge, temp));
 		notifyObservers();
 	}
 
-	public String zeigeFreizeitbadAn () throws PlausiException {
-		return this.freizeitbad.gibFreizeitbadZurueck(' ');
+	public String zeigeFreizeitbaederAn () throws PlausiException {
+		String text = " ";
+		for(Freizeitbad e : this.freizeitbaeder) {
+			text = text + e.gibFreizeitbadZurueck(' ') + "\n";
+		}
+		return text;
 		
 	}
 	
@@ -60,7 +83,10 @@ public class FreizeitbaederModel implements Observable{
 		WriterCreator writerCreator = new ConctreteCsvWriterCreator();
 		WriterProduct writer = writerCreator.factoryMethod();
 		
-		writer.fuegeInDateiHinZu(this.freizeitbad);
+		for( Freizeitbad e : getFreizeitbaeder()) {
+
+			writer.fuegeInDateiHinZu(e);
+		}
 		writer.schliesseDatei();
 	}
 	
@@ -69,14 +95,12 @@ public class FreizeitbaederModel implements Observable{
 		WriterCreator writerCreator = new ConcreteTxtWriterCreator();
 		WriterProduct writer = writerCreator.factoryMethod();
 		
-		writer.fuegeInDateiHinZu(this.freizeitbad);
+		for( Freizeitbad e : getFreizeitbaeder()) {
+
+			writer.fuegeInDateiHinZu(e);
+		}
 		writer.schliesseDatei();
 		
-	}
-
-	public Freizeitbad getFreizeitbad() {
-		// TODO Auto-generated method stub
-		return this.freizeitbad;
 	}
 	
 	// Methoden von Observable implementiert-----------------------------------

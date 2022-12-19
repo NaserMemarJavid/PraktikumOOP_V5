@@ -5,7 +5,7 @@ import gui.guiFreizeitbaeder.FreizeitbaederView;
 import javafx.stage.Stage;
 
 public class SportstaettenControl {
-	
+	 
 
 	private SportstaettenView sportstaettenView;
 	private FreizeitbaederModel freizeitbaederModel;

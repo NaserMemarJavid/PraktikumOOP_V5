@@ -13,7 +13,7 @@ public class ConcreteTxtWriterProduct extends WriterProduct {
 		this.aus = new BufferedWriter(
 				new FileWriter("Freizeitbaeder.txt", true));
 	}
-
+ 
 	@Override
 	public void fuegeInDateiHinZu(Freizeitbad freizeitbad) throws IOException {
 		aus.write(

@@ -6,7 +6,7 @@ import ownUtil.PlausiException;
 import java.io.IOException;
 
 import business.FreizeitbaederModel;
-
+ 
 public class FreizeitbaederControl{
 	
 	
@@ -30,13 +30,13 @@ public class FreizeitbaederControl{
 		catch(PlausiException exc) {
 			this.freizeitbaederView.zeigeFehlermeldungsfensterAn(exc.getPlausiTyp() + "er ", exc.getMessage());
 		}
-		
+		 
 	}
 
 	public String zeigeFreizeitbadAn() {
 		String txt="!!!!";
 		try{
-			txt = this.freizeitbaederModel.zeigeFreizeitbadAn();
+			txt = this.freizeitbaederModel.zeigeFreizeitbaederAn();
 		} 
 		catch(PlausiException exc) {
 			this.freizeitbaederView.zeigeFehlermeldungsfensterAn(exc.getPlausiTyp() + "er ", exc.getMessage());

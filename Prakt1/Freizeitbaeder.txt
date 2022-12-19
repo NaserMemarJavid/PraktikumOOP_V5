@@ -1,0 +1,20 @@
+Daten des Freizeitbades
+ Name des Freizetbads: 	asd
+ OefnungsZeit des Freizeitbads: 	1.0-2.0
+ Beckenlaenge des Freizeitbads: 	3
+ Wassertemperatur des freizeitbades: 	4
+Daten des Freizeitbades
+ Name des Freizetbads: 	asd
+ OefnungsZeit des Freizeitbads: 	1.0-2.0
+ Beckenlaenge des Freizeitbads: 	3
+ Wassertemperatur des freizeitbades: 	4
+Daten des Freizeitbades
+ Name des Freizetbads: 	wert
+ OefnungsZeit des Freizeitbads: 	1.0-2.0
+ Beckenlaenge des Freizeitbads: 	3
+ Wassertemperatur des freizeitbades: 	4
+Daten des Freizeitbades
+ Name des Freizetbads: 	zuio
+ OefnungsZeit des Freizeitbads: 	1.0-2.0
+ Beckenlaenge des Freizeitbads: 	3
+ Wassertemperatur des freizeitbades: 	4

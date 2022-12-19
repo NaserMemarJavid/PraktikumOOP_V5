@@ -11,3 +11,4 @@ public abstract class WriterProduct {
 	public abstract void schliesseDatei() throws IOException;
 
 }
+ 
