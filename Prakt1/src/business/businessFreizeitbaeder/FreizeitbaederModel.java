@@ -1,5 +1,5 @@
-package business;
-
+package business.businessFreizeitbaeder;
+ 
 import java.io.BufferedWriter; 
 import java.io.FileWriter;
 import java.io.IOException;

@@ -5,14 +5,14 @@ import ownUtil.PlausiException;
 
 import java.io.IOException;
 
-import business.FreizeitbaederModel;
+import business.businessFreizeitbaeder.FreizeitbaederModel;
  
 public class FreizeitbaederControl{
 	
 	
 	FreizeitbaederView freizeitbaederView;
 	FreizeitbaederModel freizeitbaederModel;
-	
+	 
 	public FreizeitbaederControl( Stage primaryStage ) {
 		
 //		this.freizeitbaederModel = new FreizeitbaederModel();

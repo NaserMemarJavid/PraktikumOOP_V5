@@ -2,7 +2,7 @@ package writer;
 
 import java.io.IOException;
 
-import business.Freizeitbad;
+import business.businessFreizeitbaeder.Freizeitbad;
 
 public abstract class WriterProduct {
 	
